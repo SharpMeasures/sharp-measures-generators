@@ -1,0 +1,11 @@
+bin/
+obj/
+log/
+
+.vs/
+
+*.bak
+
+# Cake
+tools/
+artifacts/
