@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <RootNamespace>SharpMeasures.Generators.Parsing.Attributes</RootNamespace>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <Title>SharpMeasures.Generators.Parsing.Attributes.Abstractions</Title>
+        <Description>
+            Provides abstractions of SharpMeasures.Generators.Parsing.Attributes.
+        </Description>
+        <PackageReadmeFile>README.nupkg.md</PackageReadmeFile>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <None Include="README.nupkg.md" Pack="true" PackagePath="\" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.CodeAnalysis.CSharp" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\SharpMeasures.Generators.Attributes\SharpMeasures.Generators.Attributes.csproj" />
+        <ProjectReference Include="..\SharpMeasures.Generators.Parsing.Attributes.Core\SharpMeasures.Generators.Parsing.Attributes.Core.csproj" />
+        <ProjectReference Include="..\SharpMeasures.Generators.Parsing.Attributes.Syntax\SharpMeasures.Generators.Parsing.Attributes.Syntax.csproj" />
+    </ItemGroup>
+
+</Project>
