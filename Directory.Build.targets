@@ -8,4 +8,9 @@
         <PackageReference Update="SonarAnalyzer.CSharp" Version="9.3.0.71466" />
     </ItemGroup>
 
+    <ItemGroup>
+        <PackageReference Update="Microsoft.CodeAnalysis.Analyzers" Version="3.3.4" />
+        <PackageReference Update="Microsoft.CodeAnalysis.Common" Version="4.6.0" />
+    </ItemGroup>
+
 </Project>

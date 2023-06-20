@@ -12,6 +12,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpMeasures.Generators.Attributes", "src\SharpMeasures.Generators.Attributes\SharpMeasures.Generators.Attributes.csproj", "{19A7CAFA-E184-4364-B10F-4E052943F642}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SharpMeasures.Generators.Parsing.Attributes.Syntax", "src\SharpMeasures.Generators.Parsing.Attributes.Syntax\SharpMeasures.Generators.Parsing.Attributes.Syntax.csproj", "{2F5AEE13-A84E-498C-813A-3D86F87628DB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -22,8 +24,15 @@ Global
 		{19A7CAFA-E184-4364-B10F-4E052943F642}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{19A7CAFA-E184-4364-B10F-4E052943F642}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{19A7CAFA-E184-4364-B10F-4E052943F642}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F5AEE13-A84E-498C-813A-3D86F87628DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F5AEE13-A84E-498C-813A-3D86F87628DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F5AEE13-A84E-498C-813A-3D86F87628DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F5AEE13-A84E-498C-813A-3D86F87628DB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7F6366F6-22C0-4E6D-AC26-7F8F6159D597}
 	EndGlobalSection
 EndGlobal
