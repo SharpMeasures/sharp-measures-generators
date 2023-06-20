@@ -13,4 +13,8 @@
         <PackageReference Update="Microsoft.CodeAnalysis.Common" Version="4.6.0" />
     </ItemGroup>
 
+    <ItemGroup>
+        <PackageReference Update="OneOf" Version="3.0.243" />
+    </ItemGroup>
+
 </Project>
