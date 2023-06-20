@@ -6,7 +6,7 @@
     </PropertyGroup>
 
     <PropertyGroup>
-        <Title>SharpMeasures.Generators.Attributes.Parsing.Core</Title>
+        <Title>SharpMeasures.Generators.Parsing.Attributes.Core</Title>
         <Description>
             Allows representation of the information retrieved from parsing the attributes of SharpMeasures.Generators.
         </Description>

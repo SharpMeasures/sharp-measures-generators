@@ -6,7 +6,7 @@
     </PropertyGroup>
 
     <PropertyGroup>
-        <Title>SharpMeasures.Generators.Attributes.Parsing.Syntax</Title>
+        <Title>SharpMeasures.Generators.Parsing.Attributes.Syntax</Title>
         <Description>
             Allows representation of the syntactical information retrieved from parsing the attributes of SharpMeasures.Generators.
         </Description>
