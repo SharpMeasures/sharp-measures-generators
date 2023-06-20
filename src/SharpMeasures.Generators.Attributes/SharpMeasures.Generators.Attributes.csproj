@@ -5,6 +5,18 @@
         <RootNamespace>SharpMeasures</RootNamespace>
     </PropertyGroup>
 
+    <PropertyGroup>
+        <Title>SharpMeasures.Generators.Attributes</Title>
+        <Description>
+            Provides the attributes used by SharpMeasures.Generators, declaring how quantities and units should be generated.
+        </Description>
+        <PackageReadmeFile>README.nupkg.md</PackageReadmeFile>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <None Include="README.nupkg.md" Pack="true" PackagePath="\" />
+    </ItemGroup>
+
     <ItemGroup>
         <PackageReference Include="IsExternalInit" PrivateAssets="all">
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
