@@ -1,6 +1,10 @@
 <Project>
 
     <ItemGroup>
+        <PackageReference Update="IsExternalInit" Version="1.0.3" />
+    </ItemGroup>
+    
+    <ItemGroup>
         <PackageReference Update="SonarAnalyzer.CSharp" Version="9.3.0.71466" />
     </ItemGroup>
 
