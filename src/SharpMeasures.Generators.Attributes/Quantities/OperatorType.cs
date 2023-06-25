@@ -1,6 +1,6 @@
 ﻿namespace SharpMeasures;
 
-/// <summary>Describes operators acting on two quantities.</summary>
+/// <summary>Specifies a binary operator.</summary>
 public enum OperatorType
 {
     /// <summary>The <see cref="OperatorType"/> is unknown.</summary>

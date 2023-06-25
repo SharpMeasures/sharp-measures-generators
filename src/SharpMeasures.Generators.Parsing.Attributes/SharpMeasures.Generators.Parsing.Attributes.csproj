@@ -26,7 +26,10 @@
     </ItemGroup>
 
     <ItemGroup>
+        <ProjectReference Include="..\SharpMeasures.Generators.Attributes\SharpMeasures.Generators.Attributes.csproj" />
         <ProjectReference Include="..\SharpMeasures.Generators.Parsing.Attributes.Abstractions\SharpMeasures.Generators.Parsing.Attributes.Abstractions.csproj" />
+        <ProjectReference Include="..\SharpMeasures.Generators.Parsing.Attributes.Core\SharpMeasures.Generators.Parsing.Attributes.Core.csproj" />
+        <ProjectReference Include="..\SharpMeasures.Generators.Parsing.Attributes.Syntax\SharpMeasures.Generators.Parsing.Attributes.Syntax.csproj" />
     </ItemGroup>
 
 </Project>

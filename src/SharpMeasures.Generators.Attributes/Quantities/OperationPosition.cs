@@ -1,4 +1,5 @@
 ﻿namespace SharpMeasures;
+
 /// <summary>Describes the position of a quantity in an operation of two quantities.</summary>
 public enum OperationPosition
 {
