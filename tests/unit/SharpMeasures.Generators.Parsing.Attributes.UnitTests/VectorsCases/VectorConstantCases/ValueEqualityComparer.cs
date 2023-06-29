@@ -1,4 +1,4 @@
-﻿namespace SharpMeasures.Generators.Parsing.Attributes.VectorsCases.VectorConstantCases.SemanticCases;
+﻿namespace SharpMeasures.Generators.Parsing.Attributes.VectorsCases.VectorConstantCases;
 
 using Microsoft.CodeAnalysis;
 

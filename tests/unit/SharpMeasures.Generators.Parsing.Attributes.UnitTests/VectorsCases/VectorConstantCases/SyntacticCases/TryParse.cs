@@ -6,7 +6,6 @@ using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Moq;
 
 using SharpMeasures.Generators.Parsing.Attributes.Vectors;
-using SharpMeasures.Generators.Parsing.Attributes.VectorsCases.VectorConstantCases.SemanticCases;
 using SharpMeasures.Generators.TestUtility;
 
 using System;
