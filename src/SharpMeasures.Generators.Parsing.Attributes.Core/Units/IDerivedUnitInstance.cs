@@ -9,5 +9,5 @@ public interface IDerivedUnitInstance : IUnitInstance
     public abstract string? DerivationID { get; }
 
     /// <summary>The names of the unit instances of other units from which the unit instance is derived.</summary>
-    public abstract IReadOnlyList<string?>? Units { get; }
+    public abstract IReadOnlyList<string?>? UnitInstances { get; }
 }

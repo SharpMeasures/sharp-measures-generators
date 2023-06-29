@@ -86,28 +86,28 @@ public sealed class ScalarConstantParser : ISyntacticScalarConstantParser, ISema
             return null;
         }
 
-        return new SemanticScalarConstant(recorder.Name, recorder.UnitInstanceName, recorder.Value.Value);
+        return new SemanticScalarConstant(recorder.Name, recorder.UnitInstance, recorder.Value.Value);
     }
 
     private static IScalarConstantSyntax CreateSyntax(ScalarConstantAttributeArgumentRecorder recorder)
     {
-        return new ScalarConstantSyntax(recorder.AttributeNameLocation, recorder.AttributeLocation, recorder.NameLocation, recorder.UnitInstanceNameLocation, recorder.ValueLocation);
+        return new ScalarConstantSyntax(recorder.AttributeNameLocation, recorder.AttributeLocation, recorder.NameLocation, recorder.UnitInstanceLocation, recorder.ValueLocation);
     }
 
     private sealed class ScalarConstantAttributeArgumentRecorder : Attributes.AArgumentRecorder
     {
         public string? Name { get; private set; }
-        public string? UnitInstanceName { get; private set; }
+        public string? UnitInstance { get; private set; }
         public OneOf<double, string?>? Value { get; private set; }
 
         public Location NameLocation { get; private set; } = Location.None;
-        public Location UnitInstanceNameLocation { get; private set; } = Location.None;
+        public Location UnitInstanceLocation { get; private set; } = Location.None;
         public Location ValueLocation { get; private set; } = Location.None;
 
         protected override IEnumerable<(string, DSyntacticSingleRecorder)> AddSingleRecorders()
         {
             yield return ("Name", Adapters.ForNullable<string>(RecordName));
-            yield return ("UnitInstanceName", Adapters.ForNullable<string>(RecordUnitInstance));
+            yield return ("UnitInstance", Adapters.ForNullable<string>(RecordUnitInstance));
             yield return ("Value", Adapters.For<double>(RecordValue));
             yield return ("Expression", Adapters.ForNullable<string>(RecordExpression));
         }
@@ -120,8 +120,8 @@ public sealed class ScalarConstantParser : ISyntacticScalarConstantParser, ISema
 
         private void RecordUnitInstance(string? unitInstance, Location location)
         {
-            UnitInstanceName = unitInstance;
-            UnitInstanceNameLocation = location;
+            UnitInstance = unitInstance;
+            UnitInstanceLocation = location;
         }
 
         private void RecordValue(double value, Location location)
@@ -149,7 +149,7 @@ public sealed class ScalarConstantParser : ISyntacticScalarConstantParser, ISema
         }
 
         string? IScalarConstant.Name => Semantics.Name;
-        string? IScalarConstant.UnitInstanceName => Semantics.UnitInstanceName;
+        string? IScalarConstant.UnitInstance => Semantics.UnitInstance;
         OneOf<double, string?> IScalarConstant.Value => Semantics.Value;
 
         IScalarConstantSyntax ISyntacticScalarConstant.Syntax => Syntax;
@@ -169,7 +169,7 @@ public sealed class ScalarConstantParser : ISyntacticScalarConstantParser, ISema
         }
 
         string? IScalarConstant.Name => Name;
-        string? IScalarConstant.UnitInstanceName => UnitInstance;
+        string? IScalarConstant.UnitInstance => UnitInstance;
         OneOf<double, string?> IScalarConstant.Value => Value;
     }
 
@@ -188,7 +188,7 @@ public sealed class ScalarConstantParser : ISyntacticScalarConstantParser, ISema
         }
 
         Location IScalarConstantSyntax.Name => Name;
-        Location IScalarConstantSyntax.UnitInstanceName => UnitInstance;
+        Location IScalarConstantSyntax.UnitInstance => UnitInstance;
         Location IScalarConstantSyntax.Value => Value;
     }
 }

@@ -11,7 +11,7 @@ public interface IVectorConstantSyntax : IAttributeSyntax
     public abstract Location Name { get; }
 
     /// <summary>The <see cref="Location"/> of the argument for the name of the unit instance in which the provided value is expressed.</summary>
-    public abstract Location UnitInstanceName { get; }
+    public abstract Location UnitInstance { get; }
 
     /// <summary>The <see cref="Location"/> of the argument for the value of the constant.</summary>
     public abstract Location ValueCollection { get; }

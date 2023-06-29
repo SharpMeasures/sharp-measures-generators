@@ -10,7 +10,7 @@ public sealed class VectorConstantAttribute : Attribute
     public string Name { get; }
 
     /// <summary>The name of the unit instance in which the provided value is expressed.</summary>
-    public string UnitInstanceName { get; }
+    public string UnitInstance { get; }
 
     /// <summary>The value of the constant, when expressed in the provided unit.</summary>
     public double[]? Value { get; }
@@ -20,23 +20,23 @@ public sealed class VectorConstantAttribute : Attribute
 
     /// <inheritdoc cref="VectorConstantAttribute"/>
     /// <param name="name"><inheritdoc cref="Name" path="/summary"/></param>
-    /// <param name="unitInstanceName"><inheritdoc cref="UnitInstanceName" path="/summary"/></param>
+    /// <param name="unitInstance"><inheritdoc cref="UnitInstance" path="/summary"/></param>
     /// <param name="value"><inheritdoc cref="Value" path="/summary"/></param>
-    public VectorConstantAttribute(string name, string unitInstanceName, params double[] value)
+    public VectorConstantAttribute(string name, string unitInstance, params double[] value)
     {
         Name = name;
-        UnitInstanceName = unitInstanceName;
+        UnitInstance = unitInstance;
         Value = value;
     }
 
     /// <inheritdoc cref="VectorConstantAttribute"/>
     /// <param name="name"><inheritdoc cref="Name" path="/summary"/></param>
-    /// <param name="unitInstanceName"><inheritdoc cref="UnitInstanceName" path="/summary"/></param>
+    /// <param name="unitInstance"><inheritdoc cref="UnitInstance" path="/summary"/></param>
     /// <param name="expressions"><inheritdoc cref="Expressions" path="/summary"/></param>
-    public VectorConstantAttribute(string name, string unitInstanceName, params string[] expressions)
+    public VectorConstantAttribute(string name, string unitInstance, params string[] expressions)
     {
         Name = name;
-        UnitInstanceName = unitInstanceName;
+        UnitInstance = unitInstance;
         Expressions = expressions;
     }
 }

@@ -5,8 +5,8 @@ public enum ConversionOperatorBehaviour
 {
     /// <summary>The <see cref="ConversionOperatorBehaviour"/> is unknown.</summary>
     Unknown,
-    /// <summary>The conversion operation is implemented as an explicit operator.</summary>
+    /// <summary>The conversion operator is implemented as an explicit operator.</summary>
     Explicit,
-    /// <summary>The conversion operation is implemented as an implicit operator.</summary>
+    /// <summary>The conversion operator is implemented as an implicit operator.</summary>
     Implicit
 }

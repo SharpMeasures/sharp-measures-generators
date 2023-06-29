@@ -16,38 +16,38 @@ public sealed class DerivedUnitInstanceAttribute : Attribute
     public string? DerivationID { get; }
 
     /// <summary>The names of the unit instances of other units from which this unit instance is derived. The order must match that of the derivation signature.</summary>
-    public string[] Units { get; }
+    public string[] UnitInstances { get; }
 
     /// <inheritdoc cref="DerivedUnitInstanceAttribute"/>
     /// <param name="name"><inheritdoc cref="Name" path="/summary"/></param>
     /// <param name="pluralForm"><inheritdoc cref="PluralForm" path="/summary"/></param>
     /// <param name="derivationID"><inheritdoc cref="DerivationID" path="/summary"/></param>
-    /// <param name="units"><inheritdoc cref="Units" path="/summary"/></param>
-    public DerivedUnitInstanceAttribute(string name, string? pluralForm, string? derivationID, string[] units)
+    /// <param name="unitInstances"><inheritdoc cref="UnitInstances" path="/summary"/></param>
+    public DerivedUnitInstanceAttribute(string name, string? pluralForm, string? derivationID, string[] unitInstances)
     {
         Name = name;
         PluralForm = pluralForm;
         DerivationID = derivationID;
-        Units = units;
+        UnitInstances = unitInstances;
     }
 
     /// <summary><inheritdoc cref="DerivedUnitInstanceAttribute" path="/summary"/></summary>
     /// <param name="name"><inheritdoc cref="Name" path="/summary"/></param>
     /// <param name="pluralForm"><inheritdoc cref="PluralForm" path="/summary"/></param>
-    /// <param name="units"><inheritdoc cref="Units" path="/summary"/></param>
-    public DerivedUnitInstanceAttribute(string name, string? pluralForm, string[] units)
+    /// <param name="unitInstances"><inheritdoc cref="UnitInstances" path="/summary"/></param>
+    public DerivedUnitInstanceAttribute(string name, string? pluralForm, string[] unitInstances)
     {
         Name = name;
         PluralForm = pluralForm;
-        Units = units;
+        UnitInstances = unitInstances;
     }
 
     /// <summary><inheritdoc cref="DerivedUnitInstanceAttribute" path="/summary"/></summary>
     /// <param name="name"><inheritdoc cref="Name" path="/summary"/></param>
-    /// <param name="units"><inheritdoc cref="Units" path="/summary"/></param>
-    public DerivedUnitInstanceAttribute(string name, string[] units)
+    /// <param name="unitInstances"><inheritdoc cref="UnitInstances" path="/summary"/></param>
+    public DerivedUnitInstanceAttribute(string name, string[] unitInstances)
     {
         Name = name;
-        Units = units;
+        UnitInstances = unitInstances;
     }
 }

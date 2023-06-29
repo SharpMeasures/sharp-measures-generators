@@ -11,8 +11,8 @@ public interface IDerivedUnitInstanceSyntax : IUnitInstanceSyntax
     public abstract Location DerivationID { get; }
 
     /// <summary>The <see cref="Location"/> of the argument for the names of the unit instances.</summary>
-    public abstract Location UnitsCollection { get; }
+    public abstract Location UnitInstancesCollection { get; }
 
     /// <summary>The <see cref="Location"/> of each individual element in the argument for the names of the unit instances.</summary>
-    public abstract IReadOnlyList<Location> UnitsElements { get; }
+    public abstract IReadOnlyList<Location> UnitInstancesElements { get; }
 }

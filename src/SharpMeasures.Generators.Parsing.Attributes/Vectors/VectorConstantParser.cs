@@ -76,29 +76,29 @@ public sealed class VectorConstantParser : ISyntacticVectorConstantParser, ISema
 
     private static IVectorConstant CreateSemantic(VectorConstantAttributeArgumentRecorder recorder)
     {
-        return new SemanticVectorConstant(recorder.Name, recorder.UnitInstanceName, recorder.Value);
+        return new SemanticVectorConstant(recorder.Name, recorder.UnitInstance, recorder.Value);
     }
 
     private static IVectorConstantSyntax CreateSyntax(VectorConstantAttributeArgumentRecorder recorder)
     {
-        return new VectorConstantSyntax(recorder.AttributeNameLocation, recorder.AttributeLocation, recorder.NameLocation, recorder.UnitInstanceNameLocation, recorder.ValueCollectionLocation, recorder.ValueElementLocations);
+        return new VectorConstantSyntax(recorder.AttributeNameLocation, recorder.AttributeLocation, recorder.NameLocation, recorder.UnitInstanceLocation, recorder.ValueCollectionLocation, recorder.ValueElementLocations);
     }
 
     private sealed class VectorConstantAttributeArgumentRecorder : Attributes.AArgumentRecorder
     {
         public string? Name { get; private set; }
-        public string? UnitInstanceName { get; private set; }
+        public string? UnitInstance { get; private set; }
         public OneOf<IReadOnlyList<double>?, IReadOnlyList<string?>?> Value { get; private set; }
 
         public Location NameLocation { get; private set; } = Location.None;
-        public Location UnitInstanceNameLocation { get; private set; } = Location.None;
+        public Location UnitInstanceLocation { get; private set; } = Location.None;
         public Location ValueCollectionLocation { get; private set; } = Location.None;
         public IReadOnlyList<Location> ValueElementLocations { get; private set; } = Array.Empty<Location>();
 
         protected override IEnumerable<(string, DSyntacticSingleRecorder)> AddSingleRecorders()
         {
             yield return ("Name", Adapters.ForNullable<string>(RecordName));
-            yield return ("UnitInstanceName", Adapters.ForNullable<string>(RecordUnitInstanceName));
+            yield return ("UnitInstance", Adapters.ForNullable<string>(RecordUnitInstance));
         }
 
         protected override IEnumerable<(string, DSyntacticArrayRecorder)> AddArrayRecorders()
@@ -113,10 +113,10 @@ public sealed class VectorConstantParser : ISyntacticVectorConstantParser, ISema
             NameLocation = location;
         }
 
-        private void RecordUnitInstanceName(string? unitInstanceName, Location location)
+        private void RecordUnitInstance(string? unitInstance, Location location)
         {
-            UnitInstanceName = unitInstanceName;
-            UnitInstanceNameLocation = location;
+            UnitInstance = unitInstance;
+            UnitInstanceLocation = location;
         }
 
         private void RecordValue(IReadOnlyList<double>? value, Location collectionLocation, IReadOnlyList<Location> elementLocations)
@@ -148,7 +148,7 @@ public sealed class VectorConstantParser : ISyntacticVectorConstantParser, ISema
         }
 
         string? IVectorConstant.Name => Semantics.Name;
-        string? IVectorConstant.UnitInstanceName => Semantics.UnitInstanceName;
+        string? IVectorConstant.UnitInstance => Semantics.UnitInstance;
         OneOf<IReadOnlyList<double>?, IReadOnlyList<string?>?> IVectorConstant.Value => Semantics.Value;
 
         IVectorConstantSyntax ISyntacticVectorConstant.Syntax => Syntax;
@@ -157,38 +157,38 @@ public sealed class VectorConstantParser : ISyntacticVectorConstantParser, ISema
     private sealed class SemanticVectorConstant : IVectorConstant
     {
         private string? Name { get; }
-        private string? UnitInstanceName { get; }
+        private string? UnitInstance { get; }
         private OneOf<IReadOnlyList<double>?, IReadOnlyList<string?>?> Value { get; }
 
-        public SemanticVectorConstant(string? name, string? unitInstanceName, OneOf<IReadOnlyList<double>?, IReadOnlyList<string?>?> value)
+        public SemanticVectorConstant(string? name, string? unitInstance, OneOf<IReadOnlyList<double>?, IReadOnlyList<string?>?> value)
         {
             Name = name;
-            UnitInstanceName = unitInstanceName;
+            UnitInstance = unitInstance;
             Value = value;
         }
 
         string? IVectorConstant.Name => Name;
-        string? IVectorConstant.UnitInstanceName => UnitInstanceName;
+        string? IVectorConstant.UnitInstance => UnitInstance;
         OneOf<IReadOnlyList<double>?, IReadOnlyList<string?>?> IVectorConstant.Value => Value;
     }
 
     private sealed class VectorConstantSyntax : AAttributeSyntax, IVectorConstantSyntax
     {
         private Location Name { get; }
-        private Location UnitInstanceName { get; }
+        private Location UnitInstance { get; }
         private Location ValueCollection { get; }
         private IReadOnlyList<Location> ValueElements { get; }
 
-        public VectorConstantSyntax(Location attributeName, Location attribute, Location name, Location unitInstanceName, Location valueCollection, IReadOnlyList<Location> valueElements) : base(attributeName, attribute)
+        public VectorConstantSyntax(Location attributeName, Location attribute, Location name, Location unitInstance, Location valueCollection, IReadOnlyList<Location> valueElements) : base(attributeName, attribute)
         {
             Name = name;
-            UnitInstanceName = unitInstanceName;
+            UnitInstance = unitInstance;
             ValueCollection = valueCollection;
             ValueElements = valueElements;
         }
 
         Location IVectorConstantSyntax.Name => Name;
-        Location IVectorConstantSyntax.UnitInstanceName => UnitInstanceName;
+        Location IVectorConstantSyntax.UnitInstance => UnitInstance;
         Location IVectorConstantSyntax.ValueCollection => ValueCollection;
         IReadOnlyList<Location> IVectorConstantSyntax.ValueElements => ValueElements;
     }

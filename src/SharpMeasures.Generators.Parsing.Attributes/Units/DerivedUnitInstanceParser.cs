@@ -76,12 +76,12 @@ public sealed class DerivedUnitInstanceParser : ISyntacticDerivedUnitInstancePar
 
     private IDerivedUnitInstance CreateSemantic(DerivedUnitInstanceAttributeArgumentRecorder recorder)
     {
-        return new SemanticDerivedUnitInstance(recorder.Name, recorder.PluralForm, recorder.DerivationID, recorder.Units);
+        return new SemanticDerivedUnitInstance(recorder.Name, recorder.PluralForm, recorder.DerivationID, recorder.UnitInstances);
     }
 
     private IDerivedUnitInstanceSyntax CreateSyntax(DerivedUnitInstanceAttributeArgumentRecorder recorder)
     {
-        return new DerivedUnitInstanceSyntax(recorder.AttributeNameLocation, recorder.AttributeLocation, recorder.NameLocation, recorder.PluralFormLocation, recorder.DerivationIDLocation, recorder.UnitsCollectionLocation, recorder.UnitsElementLocations);
+        return new DerivedUnitInstanceSyntax(recorder.AttributeNameLocation, recorder.AttributeLocation, recorder.NameLocation, recorder.PluralFormLocation, recorder.DerivationIDLocation, recorder.UnitInstancesCollectionLocation, recorder.UnitInstancesElementLocations);
     }
 
     private sealed class DerivedUnitInstanceAttributeArgumentRecorder : Attributes.AArgumentRecorder
@@ -89,13 +89,13 @@ public sealed class DerivedUnitInstanceParser : ISyntacticDerivedUnitInstancePar
         public string? Name { get; private set; }
         public string? PluralForm { get; private set; }
         public string? DerivationID { get; private set; }
-        public IReadOnlyList<string?>? Units { get; private set; }
+        public IReadOnlyList<string?>? UnitInstances { get; private set; }
 
         public Location NameLocation { get; private set; } = Location.None;
         public Location PluralFormLocation { get; private set; } = Location.None;
         public Location DerivationIDLocation { get; private set; } = Location.None;
-        public Location UnitsCollectionLocation { get; private set; } = Location.None;
-        public IReadOnlyList<Location> UnitsElementLocations { get; private set; } = Array.Empty<Location>();
+        public Location UnitInstancesCollectionLocation { get; private set; } = Location.None;
+        public IReadOnlyList<Location> UnitInstancesElementLocations { get; private set; } = Array.Empty<Location>();
 
         protected override IEnumerable<(string, DSyntacticSingleRecorder)> AddSingleRecorders()
         {
@@ -106,7 +106,7 @@ public sealed class DerivedUnitInstanceParser : ISyntacticDerivedUnitInstancePar
 
         protected override IEnumerable<(string, DSyntacticArrayRecorder)> AddArrayRecorders()
         {
-            yield return ("Units", Adapters.ForNullable<string>(RecordUnits));
+            yield return ("UnitInstances", Adapters.ForNullable<string>(RecordUnitInstances));
         }
 
         private void RecordName(string? name, Location location)
@@ -135,11 +135,11 @@ public sealed class DerivedUnitInstanceParser : ISyntacticDerivedUnitInstancePar
             DerivationIDLocation = location;
         }
 
-        private void RecordUnits(IReadOnlyList<string?>? units, Location collectionLocation, IReadOnlyList<Location> elementLocations)
+        private void RecordUnitInstances(IReadOnlyList<string?>? unitInstances, Location collectionLocation, IReadOnlyList<Location> elementLocations)
         {
-            Units = units;
-            UnitsCollectionLocation = collectionLocation;
-            UnitsElementLocations = elementLocations;
+            UnitInstances = unitInstances;
+            UnitInstancesCollectionLocation = collectionLocation;
+            UnitInstancesElementLocations = elementLocations;
         }
     }
 
@@ -148,7 +148,7 @@ public sealed class DerivedUnitInstanceParser : ISyntacticDerivedUnitInstancePar
         public SyntacticDerivedUnitInstance(IDerivedUnitInstance semantics, IDerivedUnitInstanceSyntax syntax) : base(semantics, syntax) { }
 
         string? IDerivedUnitInstance.DerivationID => Semantics.DerivationID;
-        IReadOnlyList<string?>? IDerivedUnitInstance.Units => Semantics.Units;
+        IReadOnlyList<string?>? IDerivedUnitInstance.UnitInstances => Semantics.UnitInstances;
 
         IDerivedUnitInstanceSyntax ISyntacticDerivedUnitInstance.Syntax => Syntax;
     }
@@ -156,34 +156,34 @@ public sealed class DerivedUnitInstanceParser : ISyntacticDerivedUnitInstancePar
     private sealed class SemanticDerivedUnitInstance : ASemanticUnitInstance, IDerivedUnitInstance
     {
         private string? DerivationID { get; }
-        private IReadOnlyList<string?>? Units { get; }
+        private IReadOnlyList<string?>? UnitInstances { get; }
 
-        public SemanticDerivedUnitInstance(string? name, string? pluralForm, string? derivationID, IReadOnlyList<string?>? units) : base(name, pluralForm)
+        public SemanticDerivedUnitInstance(string? name, string? pluralForm, string? derivationID, IReadOnlyList<string?>? unitInstances) : base(name, pluralForm)
         {
             DerivationID = derivationID;
-            Units = units;
+            UnitInstances = unitInstances;
         }
 
         string? IDerivedUnitInstance.DerivationID => DerivationID;
-        IReadOnlyList<string?>? IDerivedUnitInstance.Units => Units;
+        IReadOnlyList<string?>? IDerivedUnitInstance.UnitInstances => UnitInstances;
     }
 
     private sealed class DerivedUnitInstanceSyntax : AUnitInstanceSyntax, IDerivedUnitInstanceSyntax
     {
         private Location DerivationID { get; }
-        private Location UnitsCollection { get; }
-        private IReadOnlyList<Location> UnitsElements { get; }
+        private Location UnitInstancesCollection { get; }
+        private IReadOnlyList<Location> UnitInstancesElements { get; }
 
-        public DerivedUnitInstanceSyntax(Location attributeName, Location attribute, Location name, Location pluralForm, Location derivationID, Location unitsCollection, IReadOnlyList<Location> unitsElements) : base(attributeName, attribute, name, pluralForm)
+        public DerivedUnitInstanceSyntax(Location attributeName, Location attribute, Location name, Location pluralForm, Location derivationID, Location unitInstancesCollection, IReadOnlyList<Location> unitInstancesElements) : base(attributeName, attribute, name, pluralForm)
         {
             DerivationID = derivationID;
 
-            UnitsCollection = unitsCollection;
-            UnitsElements = unitsElements;
+            UnitInstancesCollection = unitInstancesCollection;
+            UnitInstancesElements = unitInstancesElements;
         }
 
         Location IDerivedUnitInstanceSyntax.DerivationID => DerivationID;
-        Location IDerivedUnitInstanceSyntax.UnitsCollection => UnitsCollection;
-        IReadOnlyList<Location> IDerivedUnitInstanceSyntax.UnitsElements => UnitsElements;
+        Location IDerivedUnitInstanceSyntax.UnitInstancesCollection => UnitInstancesCollection;
+        IReadOnlyList<Location> IDerivedUnitInstanceSyntax.UnitInstancesElements => UnitInstancesElements;
     }
 }
