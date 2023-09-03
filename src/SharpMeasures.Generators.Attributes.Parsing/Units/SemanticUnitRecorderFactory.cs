@@ -28,7 +28,7 @@ public sealed class SemanticUnitRecorderFactory : ISemanticUnitRecorderFactory
         Mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
     }
 
-    ISemanticRecorder<ISemanticUnitRecord> ISemanticUnitRecorderFactory.Create()
+    ISemanticRecorder<ISemanticUnitRecord> ISemanticRecorderFactory<ISemanticUnitRecord>.Create()
     {
         var recordBuilder = new UnitRecordBuilder();
 

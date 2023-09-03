@@ -30,7 +30,7 @@ public sealed class ScalarAssociationRecorderFactory : IScalarAssociationRecorde
         Mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
     }
 
-    ICombinedRecorder<IScalarAssociationRecord> IScalarAssociationRecorderFactory.Create(AttributeSyntax attributeSyntax)
+    ICombinedRecorder<IScalarAssociationRecord> IRecorderFactory<IScalarAssociationRecord>.Create(AttributeSyntax attributeSyntax)
     {
         if (attributeSyntax is null)
         {

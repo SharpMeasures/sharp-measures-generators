@@ -24,7 +24,7 @@ public sealed class SemanticVectorAssociationRecorderFactory : ISemanticVectorAs
         Mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
     }
 
-    ISemanticRecorder<ISemanticVectorAssociationRecord> ISemanticVectorAssociationRecorderFactory.Create()
+    ISemanticRecorder<ISemanticVectorAssociationRecord> ISemanticRecorderFactory<ISemanticVectorAssociationRecord>.Create()
     {
         var recordBuilder = new VectorAssociationRecordBuilder();
 

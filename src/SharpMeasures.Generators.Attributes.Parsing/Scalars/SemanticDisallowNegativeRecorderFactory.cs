@@ -25,7 +25,7 @@ public sealed class SemanticDisallowNegativeRecorderFactory : ISemanticDisallowN
         Mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
     }
 
-    ISemanticRecorder<ISemanticDisallowNegativeRecord> ISemanticDisallowNegativeRecorderFactory.Create()
+    ISemanticRecorder<ISemanticDisallowNegativeRecord> ISemanticRecorderFactory<ISemanticDisallowNegativeRecord>.Create()
     {
         var recordBuilder = new DisallowNegativeRecordBuilder();
 

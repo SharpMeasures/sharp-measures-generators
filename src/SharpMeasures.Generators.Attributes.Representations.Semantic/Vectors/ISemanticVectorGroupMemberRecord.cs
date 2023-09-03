@@ -5,7 +5,7 @@ using Microsoft.CodeAnalysis;
 using OneOf;
 using OneOf.Types;
 
-/// <summary>Represents the arguments of a <see cref="VectorGroupMemberAttribute{TGroup}"/>.</summary>
+/// <summary>Represents a <see cref="VectorGroupMemberAttribute{TGroup}"/>.</summary>
 public interface ISemanticVectorGroupMemberRecord
 {
     /// <summary>The group that the member belongs to.</summary>

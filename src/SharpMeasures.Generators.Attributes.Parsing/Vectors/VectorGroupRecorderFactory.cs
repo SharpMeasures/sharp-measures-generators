@@ -27,7 +27,7 @@ public sealed class VectorGroupRecorderFactory : IVectorGroupRecorderFactory
         Mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
     }
 
-    ICombinedRecorder<IVectorGroupRecord> IVectorGroupRecorderFactory.Create(AttributeSyntax attributeSyntax)
+    ICombinedRecorder<IVectorGroupRecord> IRecorderFactory<IVectorGroupRecord>.Create(AttributeSyntax attributeSyntax)
     {
         if (attributeSyntax is null)
         {

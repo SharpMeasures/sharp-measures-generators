@@ -9,7 +9,7 @@ using System;
 /// <inheritdoc cref="IUnitlessQuantityRecordFactory"/>
 public sealed class UnitlessQuantityRecordFactory : IUnitlessQuantityRecordFactory
 {
-    IUnitlessQuantityRecord IUnitlessQuantityRecordFactory.Create(AttributeSyntax attributeSyntax)
+    IUnitlessQuantityRecord IRecordFactory<IUnitlessQuantityRecord>.Create(AttributeSyntax attributeSyntax)
     {
         if (attributeSyntax is null)
         {

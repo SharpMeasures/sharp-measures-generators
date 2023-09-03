@@ -5,7 +5,7 @@ using Microsoft.CodeAnalysis;
 using OneOf;
 using OneOf.Types;
 
-/// <summary>Represents the arguments of a <see cref="VectorQuantityAttribute{TUnit}"/>.</summary>
+/// <summary>Represents a <see cref="VectorQuantityAttribute{TUnit}"/>.</summary>
 public interface ISemanticVectorQuantityRecord
 {
     /// <summary>The <see cref="ITypeSymbol"/> of the unit that describes the quantity.</summary>

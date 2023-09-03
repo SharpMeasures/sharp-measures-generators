@@ -24,7 +24,7 @@ public sealed class SemanticSpecializedScalarQuantityRecorderFactory : ISemantic
         Mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
     }
 
-    ISemanticRecorder<ISemanticSpecializedScalarQuantityRecord> ISemanticSpecializedScalarQuantityRecorderFactory.Create()
+    ISemanticRecorder<ISemanticSpecializedScalarQuantityRecord> ISemanticRecorderFactory<ISemanticSpecializedScalarQuantityRecord>.Create()
     {
         var recordBuilder = new SpecializedScalarQuantityRecordBuilder();
 

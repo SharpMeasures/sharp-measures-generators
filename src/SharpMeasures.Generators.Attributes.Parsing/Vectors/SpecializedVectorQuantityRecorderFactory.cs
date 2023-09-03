@@ -27,7 +27,7 @@ public sealed class SpecializedVectorQuantityRecorderFactory : ISpecializedVecto
         Mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
     }
 
-    ICombinedRecorder<ISpecializedVectorQuantityRecord> ISpecializedVectorQuantityRecorderFactory.Create(AttributeSyntax attributeSyntax)
+    ICombinedRecorder<ISpecializedVectorQuantityRecord> IRecorderFactory<ISpecializedVectorQuantityRecord>.Create(AttributeSyntax attributeSyntax)
     {
         if (attributeSyntax is null)
         {

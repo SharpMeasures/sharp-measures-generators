@@ -25,7 +25,7 @@ public sealed class SemanticSpecializedVectorQuantityRecorderFactory : ISemantic
         Mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
     }
 
-    ISemanticRecorder<ISemanticSpecializedVectorQuantityRecord> ISemanticSpecializedVectorQuantityRecorderFactory.Create()
+    ISemanticRecorder<ISemanticSpecializedVectorQuantityRecord> ISemanticRecorderFactory<ISemanticSpecializedVectorQuantityRecord>.Create()
     {
         var recordBuilder = new SpecializedVectorQuantityRecordBuilder();
 

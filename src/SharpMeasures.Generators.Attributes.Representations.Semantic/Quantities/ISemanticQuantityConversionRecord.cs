@@ -7,7 +7,7 @@ using OneOf.Types;
 
 using System.Collections.Generic;
 
-/// <summary>Represents the arguments of a <see cref="QuantityConversionAttribute"/>.</summary>
+/// <summary>Represents a <see cref="QuantityConversionAttribute"/>.</summary>
 public interface ISemanticQuantityConversionRecord
 {
     /// <summary>The set of quantities to and/or from which the implementing quantity supports conversion.</summary>

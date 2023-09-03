@@ -25,7 +25,7 @@ public sealed class QuantitySumRecorderFactory : IQuantitySumRecorderFactory
         Mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
     }
 
-    ICombinedRecorder<IQuantitySumRecord> IQuantitySumRecorderFactory.Create(AttributeSyntax attributeSyntax)
+    ICombinedRecorder<IQuantitySumRecord> IRecorderFactory<IQuantitySumRecord>.Create(AttributeSyntax attributeSyntax)
     {
         if (attributeSyntax is null)
         {

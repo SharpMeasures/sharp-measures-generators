@@ -9,7 +9,7 @@ using System;
 /// <inheritdoc cref="IEnableDocumentationRecordFactory"/>
 public sealed class EnableDocumentationRecordFactory : IEnableDocumentationRecordFactory
 {
-    IEnableDocumentationRecord IEnableDocumentationRecordFactory.Create(AttributeSyntax attributeSyntax)
+    IEnableDocumentationRecord IRecordFactory<IEnableDocumentationRecord>.Create(AttributeSyntax attributeSyntax)
     {
         if (attributeSyntax is null)
         {

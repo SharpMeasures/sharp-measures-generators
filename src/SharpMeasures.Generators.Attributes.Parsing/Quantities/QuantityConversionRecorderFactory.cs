@@ -29,7 +29,7 @@ public sealed class QuantityConversionRecorderFactory : IQuantityConversionRecor
         Mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
     }
 
-    ICombinedRecorder<IQuantityConversionRecord> IQuantityConversionRecorderFactory.Create(AttributeSyntax attributeSyntax)
+    ICombinedRecorder<IQuantityConversionRecord> IRecorderFactory<IQuantityConversionRecord>.Create(AttributeSyntax attributeSyntax)
     {
         if (attributeSyntax is null)
         {

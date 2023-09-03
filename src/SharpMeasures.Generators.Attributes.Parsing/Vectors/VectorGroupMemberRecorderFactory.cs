@@ -30,7 +30,7 @@ public sealed class VectorGroupMemberRecorderFactory : IVectorGroupMemberRecorde
         Mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
     }
 
-    ICombinedRecorder<IVectorGroupMemberRecord> IVectorGroupMemberRecorderFactory.Create(AttributeSyntax attributeSyntax)
+    ICombinedRecorder<IVectorGroupMemberRecord> IRecorderFactory<IVectorGroupMemberRecord>.Create(AttributeSyntax attributeSyntax)
     {
         if (attributeSyntax is null)
         {

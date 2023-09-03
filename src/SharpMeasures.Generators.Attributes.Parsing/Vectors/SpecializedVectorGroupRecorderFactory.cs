@@ -27,7 +27,7 @@ public sealed class SpecializedVectorGroupRecorderFactory : ISpecializedVectorGr
         Mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
     }
 
-    ICombinedRecorder<ISpecializedVectorGroupRecord> ISpecializedVectorGroupRecorderFactory.Create(AttributeSyntax attributeSyntax)
+    ICombinedRecorder<ISpecializedVectorGroupRecord> IRecorderFactory<ISpecializedVectorGroupRecord>.Create(AttributeSyntax attributeSyntax)
     {
         if (attributeSyntax is null)
         {

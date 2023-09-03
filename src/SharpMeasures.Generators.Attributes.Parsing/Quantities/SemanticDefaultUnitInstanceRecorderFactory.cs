@@ -25,7 +25,7 @@ public sealed class SemanticDefaultUnitInstanceRecorderFactory : ISemanticDefaul
         Mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
     }
 
-    ISemanticRecorder<ISemanticDefaultUnitInstanceRecord> ISemanticDefaultUnitInstanceRecorderFactory.Create()
+    ISemanticRecorder<ISemanticDefaultUnitInstanceRecord> ISemanticRecorderFactory<ISemanticDefaultUnitInstanceRecord>.Create()
     {
         return Factory.Create<ISemanticDefaultUnitInstanceRecord, ISemanticDefaultUnitInstanceRecordBuilder>(Mapper, new DefaultUnitInstanceRecordBuilder());
     }

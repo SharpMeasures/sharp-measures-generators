@@ -3,7 +3,7 @@
 using OneOf;
 using OneOf.Types;
 
-/// <summary>Represents the arguments of a <see cref="DefaultUnitInstanceAttribute"/>.</summary>
+/// <summary>Represents a <see cref="DefaultUnitInstanceAttribute"/>.</summary>
 public interface ISemanticDefaultUnitInstanceRecord
 {
     /// <summary>The name of the default unit instance.</summary>

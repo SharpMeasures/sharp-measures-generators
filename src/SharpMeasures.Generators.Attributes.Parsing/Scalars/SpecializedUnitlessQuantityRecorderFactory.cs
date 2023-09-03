@@ -25,7 +25,7 @@ public sealed class SpecializedUnitlessQuantityRecorderFactory : ISpecializedUni
         Mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
     }
 
-    ICombinedRecorder<ISpecializedUnitlessQuantityRecord> ISpecializedUnitlessQuantityRecorderFactory.Create(AttributeSyntax attributeSyntax)
+    ICombinedRecorder<ISpecializedUnitlessQuantityRecord> IRecorderFactory<ISpecializedUnitlessQuantityRecord>.Create(AttributeSyntax attributeSyntax)
     {
         if (attributeSyntax is null)
         {

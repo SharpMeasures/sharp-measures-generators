@@ -25,7 +25,7 @@ public sealed class SpecializedScalarQuantityRecorderFactory : ISpecializedScala
         Mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
     }
 
-    ICombinedRecorder<ISpecializedScalarQuantityRecord> ISpecializedScalarQuantityRecorderFactory.Create(AttributeSyntax attributeSyntax)
+    ICombinedRecorder<ISpecializedScalarQuantityRecord> IRecorderFactory<ISpecializedScalarQuantityRecord>.Create(AttributeSyntax attributeSyntax)
     {
         if (attributeSyntax is null)
         {

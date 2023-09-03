@@ -9,7 +9,7 @@ using System;
 /// <inheritdoc cref="IDisableQuantitySumRecordFactory"/>
 public sealed class DisableQuantitySumRecordFactory : IDisableQuantitySumRecordFactory
 {
-    IDisableQuantitySumRecord IDisableQuantitySumRecordFactory.Create(AttributeSyntax attributeSyntax)
+    IDisableQuantitySumRecord IRecordFactory<IDisableQuantitySumRecord>.Create(AttributeSyntax attributeSyntax)
     {
         if (attributeSyntax is null)
         {

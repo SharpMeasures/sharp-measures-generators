@@ -27,7 +27,7 @@ public sealed class SemanticVectorComponentNamesRecorderFactory : ISemanticVecto
         Mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
     }
 
-    ISemanticRecorder<ISemanticVectorComponentNamesRecord> ISemanticVectorComponentNamesRecorderFactory.Create()
+    ISemanticRecorder<ISemanticVectorComponentNamesRecord> ISemanticRecorderFactory<ISemanticVectorComponentNamesRecord>.Create()
     {
         var recordBuilder = new VectorComponentNamesRecordBuilder();
 

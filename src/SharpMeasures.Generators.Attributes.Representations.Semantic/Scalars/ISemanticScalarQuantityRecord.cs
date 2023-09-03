@@ -5,7 +5,7 @@ using Microsoft.CodeAnalysis;
 using OneOf;
 using OneOf.Types;
 
-/// <summary>Represents the arguments of a <see cref="ScalarQuantityAttribute{TUnit}"/>.</summary>
+/// <summary>Represents a <see cref="ScalarQuantityAttribute{TUnit}"/>.</summary>
 public interface ISemanticScalarQuantityRecord
 {
     /// <summary>The unit that describes the quantity.</summary>

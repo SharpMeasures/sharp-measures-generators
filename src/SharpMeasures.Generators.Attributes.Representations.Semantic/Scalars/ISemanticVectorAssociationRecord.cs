@@ -2,7 +2,7 @@
 
 using Microsoft.CodeAnalysis;
 
-/// <summary>Represents the arguments of a <see cref="VectorAssociationAttribute{TVector}"/>.</summary>
+/// <summary>Represents a <see cref="VectorAssociationAttribute{TVector}"/>.</summary>
 public interface ISemanticVectorAssociationRecord
 {
     /// <summary>The vector quantity associated with the scalar quantity.</summary>

@@ -25,7 +25,7 @@ public sealed class SemanticVectorGroupRecorderFactory : ISemanticVectorGroupRec
         Mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
     }
 
-    ISemanticRecorder<ISemanticVectorGroupRecord> ISemanticVectorGroupRecorderFactory.Create()
+    ISemanticRecorder<ISemanticVectorGroupRecord> ISemanticRecorderFactory<ISemanticVectorGroupRecord>.Create()
     {
         var recordBuilder = new VectorGroupRecordBuilder();
 

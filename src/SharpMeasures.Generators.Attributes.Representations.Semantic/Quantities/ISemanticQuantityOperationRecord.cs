@@ -5,7 +5,7 @@ using Microsoft.CodeAnalysis;
 using OneOf;
 using OneOf.Types;
 
-/// <summary>Represents the arguments of a <see cref="QuantityOperationAttribute{TResult, TOther}"/>.</summary>
+/// <summary>Represents a <see cref="QuantityOperationAttribute{TResult, TOther}"/>.</summary>
 public interface ISemanticQuantityOperationRecord
 {
     /// <summary>The quantity that is the result of the operation.</summary>

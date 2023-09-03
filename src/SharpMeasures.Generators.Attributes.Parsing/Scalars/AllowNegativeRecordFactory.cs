@@ -9,7 +9,7 @@ using System;
 /// <inheritdoc cref="IAllowNegativeRecordFactory"/>
 public sealed class AllowNegativeRecordFactory : IAllowNegativeRecordFactory
 {
-    IAllowNegativeRecord IAllowNegativeRecordFactory.Create(AttributeSyntax attributeSyntax)
+    IAllowNegativeRecord IRecordFactory<IAllowNegativeRecord>.Create(AttributeSyntax attributeSyntax)
     {
         if (attributeSyntax is null)
         {

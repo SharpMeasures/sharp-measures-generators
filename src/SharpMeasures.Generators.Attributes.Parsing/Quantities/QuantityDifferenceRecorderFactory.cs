@@ -25,7 +25,7 @@ public sealed class QuantityDifferenceRecorderFactory : IQuantityDifferenceRecor
         Mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
     }
 
-    ICombinedRecorder<IQuantityDifferenceRecord> IQuantityDifferenceRecorderFactory.Create(AttributeSyntax attributeSyntax)
+    ICombinedRecorder<IQuantityDifferenceRecord> IRecorderFactory<IQuantityDifferenceRecord>.Create(AttributeSyntax attributeSyntax)
     {
         if (attributeSyntax is null)
         {

@@ -27,7 +27,7 @@ public sealed class DisallowNegativeRecorderFactory : IDisallowNegativeRecorderF
         Mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
     }
 
-    ICombinedRecorder<IDisallowNegativeRecord> IDisallowNegativeRecorderFactory.Create(AttributeSyntax attributeSyntax)
+    ICombinedRecorder<IDisallowNegativeRecord> IRecorderFactory<IDisallowNegativeRecord>.Create(AttributeSyntax attributeSyntax)
     {
         if (attributeSyntax is null)
         {

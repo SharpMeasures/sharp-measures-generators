@@ -5,7 +5,7 @@ using OneOf.Types;
 
 using System.Collections.Generic;
 
-/// <summary>Represents the arguments of a <see cref="VectorComponentNamesAttribute"/>.</summary>
+/// <summary>Represents a <see cref="VectorComponentNamesAttribute"/>.</summary>
 public interface ISemanticVectorComponentNamesRecord
 {
     /// <summary>The names of the Cartesian components.</summary>

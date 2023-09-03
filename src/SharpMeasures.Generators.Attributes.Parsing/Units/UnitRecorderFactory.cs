@@ -30,7 +30,7 @@ public sealed class UnitRecorderFactory : IUnitRecorderFactory
         Mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
     }
 
-    ICombinedRecorder<IUnitRecord> IUnitRecorderFactory.Create(AttributeSyntax attributeSyntax)
+    ICombinedRecorder<IUnitRecord> IRecorderFactory<IUnitRecord>.Create(AttributeSyntax attributeSyntax)
     {
         if (attributeSyntax is null)
         {

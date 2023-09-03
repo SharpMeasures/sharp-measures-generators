@@ -24,7 +24,7 @@ public sealed class SemanticQuantitySumRecorderFactory : ISemanticQuantitySumRec
         Mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
     }
 
-    ISemanticRecorder<ISemanticQuantitySumRecord> ISemanticQuantitySumRecorderFactory.Create()
+    ISemanticRecorder<ISemanticQuantitySumRecord> ISemanticRecorderFactory<ISemanticQuantitySumRecord>.Create()
     {
         var recordBuilder = new QuantitySumRecordBuilder();
 

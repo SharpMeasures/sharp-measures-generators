@@ -5,7 +5,7 @@ using Microsoft.CodeAnalysis;
 using OneOf;
 using OneOf.Types;
 
-/// <summary>Represents the arguments of a <see cref="ScalarAssociationAttribute{TScalar}"/>.</summary>
+/// <summary>Represents a <see cref="ScalarAssociationAttribute{TScalar}"/>.</summary>
 public interface ISemanticScalarAssociationRecord
 {
     /// <summary>The scalar quantity associated with the vector quantity.</summary>

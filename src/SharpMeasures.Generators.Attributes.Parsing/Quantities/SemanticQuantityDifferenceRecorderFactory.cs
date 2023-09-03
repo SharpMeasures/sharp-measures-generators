@@ -24,7 +24,7 @@ public sealed class SemanticQuantityDifferenceRecorderFactory : ISemanticQuantit
         Mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
     }
 
-    ISemanticRecorder<ISemanticQuantityDifferenceRecord> ISemanticQuantityDifferenceRecorderFactory.Create()
+    ISemanticRecorder<ISemanticQuantityDifferenceRecord> ISemanticRecorderFactory<ISemanticQuantityDifferenceRecord>.Create()
     {
         var recordBuilder = new QuantityDifferenceRecordBuilder();
 

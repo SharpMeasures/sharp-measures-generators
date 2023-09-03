@@ -28,7 +28,7 @@ public sealed class SemanticScalarAssociationRecorderFactory : ISemanticScalarAs
         Mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
     }
 
-    ISemanticRecorder<ISemanticScalarAssociationRecord> ISemanticScalarAssociationRecorderFactory.Create()
+    ISemanticRecorder<ISemanticScalarAssociationRecord> ISemanticRecorderFactory<ISemanticScalarAssociationRecord>.Create()
     {
         var recordBuilder = new ScalarAssociationRecordBuilder();
 

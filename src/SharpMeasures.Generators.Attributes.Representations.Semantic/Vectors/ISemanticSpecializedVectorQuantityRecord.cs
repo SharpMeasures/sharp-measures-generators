@@ -2,7 +2,7 @@
 
 using Microsoft.CodeAnalysis;
 
-/// <summary>Represents the arguments of a <see cref="SpecializedVectorQuantityAttribute{TOriginal}"/>.</summary>
+/// <summary>Represents a <see cref="SpecializedVectorQuantityAttribute{TOriginal}"/>.</summary>
 public interface ISemanticSpecializedVectorQuantityRecord
 {
     /// <summary>The <see cref="ITypeSymbol"/> of the original vector quantity, of which this quantity is a specialized form.</summary>
