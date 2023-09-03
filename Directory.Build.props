@@ -8,13 +8,14 @@
         <Nullable>enable</Nullable>
         <WarningsAsErrors>nullable</WarningsAsErrors>
         <AnalysisMode>all</AnalysisMode>
+        <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
         <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+        <DisableTransitiveProjectReferences>true</DisableTransitiveProjectReferences>
     </PropertyGroup>
 
     <PropertyGroup>
         <Owners>ErikWe</Owners>
         <Authors>ErikWe</Authors>
-        <Version>0.4.0</Version>
         <PackageProjectUrl>https://github.com/SharpMeasures/sharp-measures-generators</PackageProjectUrl>
         <RepositoryUrl>https://github.com/SharpMeasures/sharp-measures-generators</RepositoryUrl>
     </PropertyGroup>

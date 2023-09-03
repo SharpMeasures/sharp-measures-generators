@@ -1,0 +1,44 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <RootNamespace>SharpMeasures.Generators.Attributes.Parsing</RootNamespace>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <Title>SharpMeasures.Generators.Attributes.Parsing</Title>
+        <Description>
+            Allows the attributes provided by SharpMeasures.Generators to be parsed.
+        </Description>
+        <PackageReadmeFile>README.nupkg.md</PackageReadmeFile>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <None Include="README.nupkg.md" Pack="true" PackagePath="\" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="IsExternalInit" PrivateAssets="all">
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" PrivateAssets="all" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="SharpAttributeParser.Mappers" />
+        <PackageReference Include="SharpAttributeParser.RecordBuilders" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\SharpMeasures.Generators.Attributes.Parsing.Combined.Abstractions\SharpMeasures.Generators.Attributes.Parsing.Combined.Abstractions.csproj" />
+        <ProjectReference Include="..\SharpMeasures.Generators.Attributes.Parsing.Semantic.Abstractions\SharpMeasures.Generators.Attributes.Parsing.Semantic.Abstractions.csproj" />
+        <ProjectReference Include="..\SharpMeasures.Generators.Attributes.Representation.Combined\SharpMeasures.Generators.Attributes.Representation.Combined.csproj" />
+        <ProjectReference Include="..\SharpMeasures.Generators.Attributes.Representation.Semantic\SharpMeasures.Generators.Attributes.Representation.Semantic.csproj" />
+        <ProjectReference Include="..\SharpMeasures.Generators.Attributes.Representation.Syntactic\SharpMeasures.Generators.Attributes.Representation.Syntactic.csproj" />
+        <ProjectReference Include="..\SharpMeasures.Generators.Attributes\SharpMeasures.Generators.Attributes.csproj" />
+    </ItemGroup>
+
+</Project>

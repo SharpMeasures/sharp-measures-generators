@@ -1,0 +1,34 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <RootNamespace>SharpMeasures.Generators.Attributes.Parsing</RootNamespace>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <Title>SharpMeasures.Generators.Attributes.Parsing.Combined.Abstractions</Title>
+        <Description>
+            Provides abstractions of SharpMeasures.Generators.Attributes.Parsing when related to combined representations.
+        </Description>
+        <PackageReadmeFile>README.nupkg.md</PackageReadmeFile>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <None Include="README.nupkg.md" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="OneOf" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="SharpAttributeParser.Mappers.Abstractions" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\SharpMeasures.Generators.Attributes.Representation.Combined\SharpMeasures.Generators.Attributes.Representation.Combined.csproj" />
+        <ProjectReference Include="..\SharpMeasures.Generators.Attributes.Representation.Semantic\SharpMeasures.Generators.Attributes.Representation.Semantic.csproj" />
+        <ProjectReference Include="..\SharpMeasures.Generators.Attributes\SharpMeasures.Generators.Attributes.csproj" />
+    </ItemGroup>
+
+</Project>

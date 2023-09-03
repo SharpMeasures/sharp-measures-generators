@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <RootNamespace>SharpMeasures.Generators.Attributes</RootNamespace>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <Title>SharpMeasures.Generators.Attributes.Representation.Combined</Title>
+        <Description>
+            Provides combined semantic and syntactic representations of the attributes provided by SharpMeasures.Generators.Attributes.
+        </Description>
+        <PackageReadmeFile>README.nupkg.md</PackageReadmeFile>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <None Include="README.nupkg.md" Pack="true" PackagePath="\" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\SharpMeasures.Generators.Attributes.Representation.Semantic\SharpMeasures.Generators.Attributes.Representation.Semantic.csproj" />
+        <ProjectReference Include="..\SharpMeasures.Generators.Attributes.Representation.Syntactic\SharpMeasures.Generators.Attributes.Representation.Syntactic.csproj" />
+        <ProjectReference Include="..\SharpMeasures.Generators.Attributes\SharpMeasures.Generators.Attributes.csproj" />
+    </ItemGroup>
+
+</Project>
