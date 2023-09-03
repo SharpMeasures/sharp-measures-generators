@@ -1,4 +1,4 @@
-# SharpMeasures.Generators.Attributes.Representation.Syntactic
+# SharpMeasures.Generators.Attributes.Representations.Syntactic
 
 Provides syntactic representations of the attributes provided by SharpMeasures.Generators.Attributes.
 

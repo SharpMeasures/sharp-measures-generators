@@ -1,4 +1,4 @@
-# SharpMeasures.Generators.Attributes.Representation.Semantic
+# SharpMeasures.Generators.Attributes.Representations.Semantic
 
 Provides semantic representations of the attributes provided by SharpMeasures.Generators.Attributes.
 

@@ -35,9 +35,9 @@
         <ProjectReference Include="..\..\..\src\SharpMeasures.Generators.Attributes.Parsing.DependencyInjection\SharpMeasures.Generators.Attributes.Parsing.DependencyInjection.csproj" />
         <ProjectReference Include="..\..\..\src\SharpMeasures.Generators.Attributes.Parsing.Semantic.Abstractions\SharpMeasures.Generators.Attributes.Parsing.Semantic.Abstractions.csproj" />
         <ProjectReference Include="..\..\..\src\SharpMeasures.Generators.Attributes.Parsing\SharpMeasures.Generators.Attributes.Parsing.csproj" />
-        <ProjectReference Include="..\..\..\src\SharpMeasures.Generators.Attributes.Representation.Combined\SharpMeasures.Generators.Attributes.Representation.Combined.csproj" />
-        <ProjectReference Include="..\..\..\src\SharpMeasures.Generators.Attributes.Representation.Semantic\SharpMeasures.Generators.Attributes.Representation.Semantic.csproj" />
-        <ProjectReference Include="..\..\..\src\SharpMeasures.Generators.Attributes.Representation.Syntactic\SharpMeasures.Generators.Attributes.Representation.Syntactic.csproj" />
+        <ProjectReference Include="..\..\..\src\SharpMeasures.Generators.Attributes.Representations.Combined\SharpMeasures.Generators.Attributes.Representations.Combined.csproj" />
+        <ProjectReference Include="..\..\..\src\SharpMeasures.Generators.Attributes.Representations.Semantic\SharpMeasures.Generators.Attributes.Representations.Semantic.csproj" />
+        <ProjectReference Include="..\..\..\src\SharpMeasures.Generators.Attributes.Representations.Syntactic\SharpMeasures.Generators.Attributes.Representations.Syntactic.csproj" />
         <ProjectReference Include="..\..\..\src\SharpMeasures.Generators.Attributes\SharpMeasures.Generators.Attributes.csproj" />
         <ProjectReference Include="..\..\SharpMeasures.Generators.Tests.Common\SharpMeasures.Generators.Tests.Common.csproj" />
     </ItemGroup>

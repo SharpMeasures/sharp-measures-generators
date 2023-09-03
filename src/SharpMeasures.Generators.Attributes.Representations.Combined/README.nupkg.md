@@ -1,4 +1,4 @@
-# SharpMeasures.Generators.Attributes.Representation.Combined
+# SharpMeasures.Generators.Attributes.Representations.Combined
 
 Provides combined semantic and syntactic representations of the attributes provided by SharpMeasures.Generators.Attributes.
 
