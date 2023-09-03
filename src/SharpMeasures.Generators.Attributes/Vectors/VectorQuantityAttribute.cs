@@ -9,10 +9,9 @@ using System.Diagnostics.CodeAnalysis;
 [SuppressMessage("Major Code Smell", "S2326: Unused type parameters should be removed", Justification = "Used when interpreting the attribute.")]
 public sealed class VectorQuantityAttribute<TUnit> : Attribute
 {
-    /// <summary>The dimension of the quantity.</summary>
-    /// <remarks>This does not have to be explicitly specified if the name of the type ends with the dimension - for example, { <i>Position3</i> }.</remarks>
+    /// <summary>The dimension of the vector space. Can be ignored if the name of the type ends with the dimension.</summary>
     public int Dimension { get; init; }
 
-    /// <inheritdoc cref="VectorQuantityAttribute{TUnit}"/>
+    /// <summary>Declares the marked type as an auto-generated SharpMeasures vector quantity.</summary>
     public VectorQuantityAttribute() { }
 }
