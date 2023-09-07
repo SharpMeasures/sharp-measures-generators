@@ -1,4 +1,4 @@
-﻿namespace SharpMeasures.Generators.Attributes.Parsing.Quantities;
+﻿namespace SharpMeasures.Generators.Attributes.Parsing;
 
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
@@ -9,65 +9,63 @@ using OneOf.Types;
 using SharpAttributeParser;
 using SharpAttributeParser.Mappers;
 
-using SharpMeasures.Generators.Attributes.Quantities;
-
 using System;
 using System.Collections.Generic;
 
-/// <inheritdoc cref="IQuantityConversionRecorderFactory"/>
-public sealed class QuantityConversionRecorderFactory : IQuantityConversionRecorderFactory
+/// <inheritdoc cref="ITypeConversionRecorderFactory"/>
+public sealed class TypeConversionRecorderFactory : ITypeConversionRecorderFactory
 {
     private ICombinedRecorderFactory Factory { get; }
-    private ICombinedMapper<IQuantityConversionRecordBuilder> Mapper { get; }
+    private ICombinedMapper<ITypeConversionRecordBuilder> Mapper { get; }
 
-    /// <summary>Instantiates a <see cref="QuantityConversionRecorderFactory"/>, handling creation of <see cref="ICombinedRecorder{TRecord}"/> for recording the arguments of <see cref="QuantityConversionAttribute"/>.</summary>
+    /// <summary>Instantiates a <see cref="TypeConversionRecorderFactory"/>, handling creation of <see cref="ICombinedRecorder{TRecord}"/> for recording the arguments of <see cref="TypeConversionAttribute"/>.</summary>
     /// <param name="factory">The factory used to create <see cref="ICombinedRecorder{TRecord}"/>.</param>
-    /// <param name="mapper">Provides mappings from the parameters of <see cref="QuantityConversionAttribute"/> to recorders.</param>
-    public QuantityConversionRecorderFactory(ICombinedRecorderFactory factory, ICombinedMapper<IQuantityConversionRecordBuilder> mapper)
+    /// <param name="mapper">Provides mappings from the parameters of <see cref="TypeConversionAttribute"/> to recorders.</param>
+    public TypeConversionRecorderFactory(ICombinedRecorderFactory factory, ICombinedMapper<ITypeConversionRecordBuilder> mapper)
     {
         Factory = factory ?? throw new ArgumentNullException(nameof(factory));
         Mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
     }
 
-    ICombinedRecorder<IQuantityConversionRecord> IRecorderFactory<IQuantityConversionRecord>.Create(AttributeSyntax attributeSyntax)
+    ICombinedRecorder<ITypeConversionRecord> IRecorderFactory<ITypeConversionRecord>.Create(AttributeSyntax attributeSyntax)
     {
         if (attributeSyntax is null)
         {
             throw new ArgumentNullException(nameof(attributeSyntax));
         }
 
-        var recordBuilder = new QuantityConversionRecordBuilder(attributeSyntax);
+        var recordBuilder = new TypeConversionRecordBuilder(attributeSyntax);
 
-        return Factory.Create<IQuantityConversionRecord, IQuantityConversionRecordBuilder>(Mapper, recordBuilder);
+        return Factory.Create<ITypeConversionRecord, ITypeConversionRecordBuilder>(Mapper, recordBuilder);
     }
 
-    private sealed class QuantityConversionRecordBuilder : ARecordBuilder<IQuantityConversionRecord>, IQuantityConversionRecordBuilder
+    private sealed class TypeConversionRecordBuilder : ARecordBuilder<ITypeConversionRecord>, ITypeConversionRecordBuilder
     {
-        private QuantityConversionRecord Target { get; }
+        private TypeConversionRecord Target { get; }
         private BuildTracker Tracker { get; set; } = new();
 
-        public QuantityConversionRecordBuilder(AttributeSyntax attributeSyntax) : base(throwOnMultipleBuilds: true)
+        public TypeConversionRecordBuilder(AttributeSyntax attributeSyntax) : base(throwOnMultipleBuilds: true)
         {
-            SyntacticQuantityConversionRecord syntactic = new(attributeSyntax);
+            SyntacticTypeConversionRecord syntactic = new(attributeSyntax);
 
             Target = new(syntactic);
         }
 
-        protected override IQuantityConversionRecord GetRecord() => Target;
-        protected override bool CanBuildRecord() => Tracker.Quantities;
+        protected override ITypeConversionRecord GetRecord() => Target;
+        protected override bool CanBuildRecord() => Tracker.Types;
 
-        void IQuantityConversionRecordBuilder.WithQuantities(IReadOnlyList<ITypeSymbol?>? quantities, OneOf<ExpressionSyntax, IReadOnlyList<ExpressionSyntax>> syntax)
+        void ITypeConversionRecordBuilder.WithTypes(IReadOnlyList<ITypeSymbol?>? types, OneOf<ExpressionSyntax, IReadOnlyList<ExpressionSyntax>> syntax)
         {
             VerifyOneOfSyntax.Verify(syntax);
 
             VerifyCanModify();
 
-            Target.Quantities = quantities;
-            Target.Syntactic.Quantities = syntax;
-            Tracker = Tracker.WithQuantities();
+            Target.Types = types;
+            Target.Syntactic.Types = syntax;
+            Tracker = Tracker.WithTypes();
         }
 
-        void IQuantityConversionRecordBuilder.WithForwardsImplementation(ConversionImplementation forwardsImplementation, OneOf<None, ExpressionSyntax> syntax)
+        void ITypeConversionRecordBuilder.WithForwardsImplementation(ConversionImplementation forwardsImplementation, OneOf<None, ExpressionSyntax> syntax)
         {
             VerifyOneOfSyntax.Verify(syntax);
 
@@ -77,7 +75,7 @@ public sealed class QuantityConversionRecorderFactory : IQuantityConversionRecor
             Target.Syntactic.ForwardsImplementation = syntax;
         }
 
-        void IQuantityConversionRecordBuilder.WithForwardsBehaviour(ConversionOperatorBehaviour forwardsBehaviour, OneOf<None, ExpressionSyntax> syntax)
+        void ITypeConversionRecordBuilder.WithForwardsBehaviour(ConversionOperatorBehaviour forwardsBehaviour, OneOf<None, ExpressionSyntax> syntax)
         {
             VerifyOneOfSyntax.Verify(syntax);
 
@@ -87,7 +85,7 @@ public sealed class QuantityConversionRecorderFactory : IQuantityConversionRecor
             Target.Syntactic.ForwardsBehaviour = syntax;
         }
 
-        void IQuantityConversionRecordBuilder.WithForwardsPropertyName(string? forwardsPropertyName, OneOf<None, ExpressionSyntax> syntax)
+        void ITypeConversionRecordBuilder.WithForwardsPropertyName(string? forwardsPropertyName, OneOf<None, ExpressionSyntax> syntax)
         {
             VerifyOneOfSyntax.Verify(syntax);
 
@@ -97,7 +95,7 @@ public sealed class QuantityConversionRecorderFactory : IQuantityConversionRecor
             Target.Syntactic.ForwardsPropertyName = syntax;
         }
 
-        void IQuantityConversionRecordBuilder.WithForwardsMethodName(string? forwardsMethodName, OneOf<None, ExpressionSyntax> syntax)
+        void ITypeConversionRecordBuilder.WithForwardsMethodName(string? forwardsMethodName, OneOf<None, ExpressionSyntax> syntax)
         {
             VerifyOneOfSyntax.Verify(syntax);
 
@@ -107,7 +105,7 @@ public sealed class QuantityConversionRecorderFactory : IQuantityConversionRecor
             Target.Syntactic.ForwardsMethodName = syntax;
         }
 
-        void IQuantityConversionRecordBuilder.WithForwardsStaticMethodName(string? forwardsStaticMethodName, OneOf<None, ExpressionSyntax> syntax)
+        void ITypeConversionRecordBuilder.WithForwardsStaticMethodName(string? forwardsStaticMethodName, OneOf<None, ExpressionSyntax> syntax)
         {
             VerifyOneOfSyntax.Verify(syntax);
 
@@ -117,7 +115,7 @@ public sealed class QuantityConversionRecorderFactory : IQuantityConversionRecor
             Target.Syntactic.ForwardsStaticMethodName = syntax;
         }
 
-        void IQuantityConversionRecordBuilder.WithBackwardsImplementation(ConversionImplementation backwardsImplementation, OneOf<None, ExpressionSyntax> syntax)
+        void ITypeConversionRecordBuilder.WithBackwardsImplementation(ConversionImplementation backwardsImplementation, OneOf<None, ExpressionSyntax> syntax)
         {
             VerifyOneOfSyntax.Verify(syntax);
 
@@ -127,7 +125,7 @@ public sealed class QuantityConversionRecorderFactory : IQuantityConversionRecor
             Target.Syntactic.BackwardsImplementation = syntax;
         }
 
-        void IQuantityConversionRecordBuilder.WithBackwardsBehaviour(ConversionOperatorBehaviour backwardsBehaviour, OneOf<None, ExpressionSyntax> syntax)
+        void ITypeConversionRecordBuilder.WithBackwardsBehaviour(ConversionOperatorBehaviour backwardsBehaviour, OneOf<None, ExpressionSyntax> syntax)
         {
             VerifyOneOfSyntax.Verify(syntax);
 
@@ -137,7 +135,7 @@ public sealed class QuantityConversionRecorderFactory : IQuantityConversionRecor
             Target.Syntactic.BackwardsBehaviour = syntax;
         }
 
-        void IQuantityConversionRecordBuilder.WithBackwardsStaticMethodName(string? backwardsStaticMethodName, OneOf<None, ExpressionSyntax> syntax)
+        void ITypeConversionRecordBuilder.WithBackwardsStaticMethodName(string? backwardsStaticMethodName, OneOf<None, ExpressionSyntax> syntax)
         {
             VerifyOneOfSyntax.Verify(syntax);
 
@@ -149,16 +147,16 @@ public sealed class QuantityConversionRecorderFactory : IQuantityConversionRecor
 
         private readonly struct BuildTracker
         {
-            public bool Quantities { get; private init; }
+            public bool Types { get; private init; }
 
-            public BuildTracker WithQuantities() => this with { Quantities = true };
+            public BuildTracker WithTypes() => this with { Types = true };
         }
 
-        private sealed class QuantityConversionRecord : IQuantityConversionRecord
+        private sealed class TypeConversionRecord : ITypeConversionRecord
         {
-            public SyntacticQuantityConversionRecord Syntactic { get; }
+            public SyntacticTypeConversionRecord Syntactic { get; }
 
-            public IReadOnlyList<ITypeSymbol?>? Quantities { get; set; }
+            public IReadOnlyList<ITypeSymbol?>? Types { get; set; }
 
             public OneOf<None, ConversionImplementation> ForwardsImplementation { get; set; }
             public OneOf<None, ConversionOperatorBehaviour> ForwardsBehaviour { get; set; }
@@ -170,17 +168,17 @@ public sealed class QuantityConversionRecorderFactory : IQuantityConversionRecor
             public OneOf<None, ConversionOperatorBehaviour> BackwardsBehaviour { get; set; }
             public OneOf<None, string?> BackwardsStaticMethodName { get; set; }
 
-            public QuantityConversionRecord(SyntacticQuantityConversionRecord syntactic)
+            public TypeConversionRecord(SyntacticTypeConversionRecord syntactic)
             {
                 Syntactic = syntactic;
             }
 
-            ISyntacticQuantityConversionRecord IQuantityConversionRecord.Syntactic => Syntactic;
+            ISyntacticTypeConversionRecord ITypeConversionRecord.Syntactic => Syntactic;
         }
 
-        private sealed class SyntacticQuantityConversionRecord : ASyntacticRecord, ISyntacticQuantityConversionRecord
+        private sealed class SyntacticTypeConversionRecord : ASyntacticRecord, ISyntacticTypeConversionRecord
         {
-            public OneOf<ExpressionSyntax, IReadOnlyList<ExpressionSyntax>> Quantities { get; set; }
+            public OneOf<ExpressionSyntax, IReadOnlyList<ExpressionSyntax>> Types { get; set; }
 
             public OneOf<None, ExpressionSyntax> ForwardsImplementation { get; set; }
             public OneOf<None, ExpressionSyntax> ForwardsBehaviour { get; set; }
@@ -192,7 +190,7 @@ public sealed class QuantityConversionRecorderFactory : IQuantityConversionRecor
             public OneOf<None, ExpressionSyntax> BackwardsBehaviour { get; set; }
             public OneOf<None, ExpressionSyntax> BackwardsStaticMethodName { get; set; }
 
-            public SyntacticQuantityConversionRecord(AttributeSyntax attribute) : base(attribute) { }
+            public SyntacticTypeConversionRecord(AttributeSyntax attribute) : base(attribute) { }
         }
     }
 }

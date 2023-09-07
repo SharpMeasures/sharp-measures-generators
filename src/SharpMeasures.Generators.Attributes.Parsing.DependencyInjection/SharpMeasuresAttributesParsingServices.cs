@@ -26,6 +26,12 @@ public static class SharpMeasuresAttributesParsingServices
             throw new ArgumentNullException(nameof(services));
         }
 
+        services.AddSingleton<ICombinedMapper<ITypeConversionRecordBuilder>, TypeConversionMapper>();
+        services.AddSingleton<ISemanticMapper<ISemanticTypeConversionRecordBuilder>, TypeConversionMapper>();
+        services.AddSingleton<ITypeConversionRecorderFactory, TypeConversionRecorderFactory>();
+        services.AddSingleton<ISemanticTypeConversionRecorderFactory, SemanticTypeConversionRecorderFactory>();
+        services.AddSingleton<ITypeConversionParser, TypeConversionParser>();
+
         AddDocumentation(services);
         AddQuantities(services);
         AddScalars(services);
@@ -47,37 +53,32 @@ public static class SharpMeasuresAttributesParsingServices
         services.AddSingleton<IDisableQuantitySumRecordFactory, DisableQuantitySumRecordFactory>();
 
         services.AddSingleton<ICombinedMapper<IDefaultUnitInstanceRecordBuilder>, DefaultUnitInstanceMapper>();
-        services.AddSingleton<ICombinedMapper<IQuantityConversionRecordBuilder>, QuantityConversionMapper>();
         services.AddSingleton<ICombinedMapper<IQuantityDifferenceRecordBuilder>, QuantityDifferenceMapper>();
         services.AddSingleton<ICombinedMapper<IQuantityOperationRecordBuilder>, QuantityOperationMapper>();
         services.AddSingleton<ICombinedMapper<IQuantitySumRecordBuilder>, QuantitySumMapper>();
 
         services.AddSingleton<ISemanticMapper<ISemanticDefaultUnitInstanceRecordBuilder>, DefaultUnitInstanceMapper>();
-        services.AddSingleton<ISemanticMapper<ISemanticQuantityConversionRecordBuilder>, QuantityConversionMapper>();
         services.AddSingleton<ISemanticMapper<ISemanticQuantityDifferenceRecordBuilder>, QuantityDifferenceMapper>();
         services.AddSingleton<ISemanticMapper<ISemanticQuantityOperationRecordBuilder>, QuantityOperationMapper>();
         services.AddSingleton<ISemanticMapper<ISemanticQuantitySumRecordBuilder>, QuantitySumMapper>();
 
         services.AddSingleton<IDefaultUnitInstanceRecorderFactory, DefaultUnitInstanceRecorderFactory>();
-        services.AddSingleton<IQuantityConversionRecorderFactory, QuantityConversionRecorderFactory>();
         services.AddSingleton<IQuantityDifferenceRecorderFactory, QuantityDifferenceRecorderFactory>();
         services.AddSingleton<IQuantityOperationRecorderFactory, QuantityOperationRecorderFactory>();
         services.AddSingleton<IQuantitySumRecorderFactory, QuantitySumRecorderFactory>();
 
         services.AddSingleton<ISemanticDefaultUnitInstanceRecorderFactory, SemanticDefaultUnitInstanceRecorderFactory>();
-        services.AddSingleton<ISemanticQuantityConversionRecorderFactory, SemanticQuantityConversionRecorderFactory>();
         services.AddSingleton<ISemanticQuantityDifferenceRecorderFactory, SemanticQuantityDifferenceRecorderFactory>();
         services.AddSingleton<ISemanticQuantityOperationRecorderFactory, SemanticQuantityOperationRecorderFactory>();
         services.AddSingleton<ISemanticQuantitySumRecorderFactory, SemanticQuantitySumRecorderFactory>();
 
         services.AddSingleton<IDefaultUnitInstanceParser, DefaultUnitInstanceParser>();
-        services.AddSingleton<IQuantityConversionParser, QuantityConversionParser>();
         services.AddSingleton<IQuantityDifferenceParser, QuantityDifferenceParser>();
         services.AddSingleton<IQuantityOperationParser, QuantityOperationParser>();
         services.AddSingleton<IQuantitySumParser, QuantitySumParser>();
 
         services.AddSingleton<ISemanticDefaultUnitInstanceParser, SemanticDefaultUnitInstanceParser>();
-        services.AddSingleton<ISemanticQuantityConversionParser, SemanticQuantityConversionParser>();
+        services.AddSingleton<ISemanticTypeConversionParser, SemanticTypeConversionParser>();
         services.AddSingleton<ISemanticQuantityDifferenceParser, SemanticQuantityDifferenceParser>();
         services.AddSingleton<ISemanticQuantityOperationParser, SemanticQuantityOperationParser>();
         services.AddSingleton<ISemanticQuantitySumParser, SemanticQuantitySumParser>();
@@ -127,21 +128,27 @@ public static class SharpMeasuresAttributesParsingServices
 
     private static void AddUnits(IServiceCollection services)
     {
+        services.AddSingleton<ICombinedMapper<IExtendedUnitRecordBuilder>, ExtendedUnitMapper>();
         services.AddSingleton<ICombinedMapper<IUnitRecordBuilder>, UnitMapper>();
         services.AddSingleton<ICombinedMapper<IUnitInstanceRecordBuilder>, UnitInstanceMapper>();
 
+        services.AddSingleton<ISemanticMapper<ISemanticExtendedUnitRecordBuilder>, ExtendedUnitMapper>();
         services.AddSingleton<ISemanticMapper<ISemanticUnitRecordBuilder>, UnitMapper>();
         services.AddSingleton<ISemanticMapper<ISemanticUnitInstanceRecordBuilder>, UnitInstanceMapper>();
 
+        services.AddSingleton<IExtendedUnitRecorderFactory, ExtendedUnitRecorderFactory>();
         services.AddSingleton<IUnitRecorderFactory, UnitRecorderFactory>();
         services.AddSingleton<IUnitInstanceRecorderFactory, UnitInstanceRecorderFactory>();
 
+        services.AddSingleton<ISemanticExtendedUnitRecorderFactory, SemanticExtendedUnitRecorderFactory>();
         services.AddSingleton<ISemanticUnitRecorderFactory, SemanticUnitRecorderFactory>();
         services.AddSingleton<ISemanticUnitInstanceRecorderFactory, SemanticUnitInstanceRecorderFactory>();
 
+        services.AddSingleton<IExtendedUnitParser, ExtendedUnitParser>();
         services.AddSingleton<IUnitParser, UnitParser>();
         services.AddSingleton<IUnitInstanceParser, UnitInstanceParser>();
 
+        services.AddSingleton<ISemanticExtendedUnitParser, SemanticExtendedUnitParser>();
         services.AddSingleton<ISemanticUnitParser, SemanticUnitParser>();
         services.AddSingleton<ISemanticUnitInstanceParser, SemanticUnitInstanceParser>();
     }
