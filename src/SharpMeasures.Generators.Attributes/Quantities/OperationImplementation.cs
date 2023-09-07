@@ -14,6 +14,6 @@ public enum OperationImplementation
     StaticMethod = 2,
     /// <summary>The operation is implemented as an operator.</summary>
     Operator = 4,
-    /// <summary>The operation is implemented as an instance method, a static  method, and an operator.</summary>
+    /// <summary>The operation is implemented as an instance method, a static method, and an operator.</summary>
     All = InstanceMethod | StaticMethod | Operator
 }

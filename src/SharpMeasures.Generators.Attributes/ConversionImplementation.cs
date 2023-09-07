@@ -2,7 +2,7 @@
 
 using System;
 
-/// <summary>Describes how a quantity implements a conversion.</summary>
+/// <summary>Describes how a type implements a conversion.</summary>
 [Flags]
 public enum ConversionImplementation
 {

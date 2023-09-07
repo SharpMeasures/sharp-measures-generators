@@ -13,28 +13,28 @@ public sealed class QuantityOperationAttribute<TResult, TOther> : Attribute
     /// <summary>The operator that is applied to the quantities.</summary>
     public OperatorType OperatorType { get; }
 
-    /// <summary>The position of the implementing quantity in the operation. The default value is <see cref="OperationPosition.Left"/>.</summary>
+    /// <summary>The position of the implementing quantity in the operation.</summary>
     public OperationPosition Position { get; init; }
 
-    /// <summary>Determines whether the mirrored operation is also implemented. The default behaviour is <see cref="OperationMirrorMode.Adaptive"/>.</summary>
+    /// <summary>Determines whether the mirrored operation is also implemented.</summary>
     public OperationMirrorMode MirrorMode { get; init; }
 
-    /// <summary>Determines how the operation is implemented. The default behaviour is <see cref="OperationImplementation.All"/>.</summary>
+    /// <summary>Determines how the operation is implemented.</summary>
     public OperationImplementation Implementation { get; init; }
 
-    /// <summary>Determines how the mirrored operation is implemented, if it is implemented. The default behaviour is <see cref="OperationImplementation.Operator"/>.</summary>
+    /// <summary>Determines how the mirrored operation is implemented, if it is implemented.</summary>
     public OperationImplementation MirroredImplementation { get; init; }
 
-    /// <summary>The name of the instance method, if implemented. By default, the name will be one of { <i>Add</i>, <i>Subtract</i>, <i>SubtractFrom</i>, <i>Multiply</i>, <i>DivideBy</i>, <i>DivideInto</i>, <i>Dot</i>, <i>Cross</i>, <i>CrossInto</i> } - depending on the <see cref="SharpMeasures.OperatorType"/> and <see cref="OperationPosition"/>.</summary>
+    /// <summary>The name of the instance method, if implemented.</summary>
     public string? MethodName { get; init; }
 
-    /// <summary>The name of the static method, if implemented. By default, the name will be one of { <i>Add</i>, <i>Subtract</i>, <i>Multiply</i>, <i>Divide</i>, <i>Dot</i>, <i>Cross</i> } - depending on the <see cref="SharpMeasures.OperatorType"/> and <see cref="OperationPosition"/>.</summary>
+    /// <summary>The name of the static method, if implemented.</summary>
     public string? StaticMethodName { get; init; }
 
-    /// <summary>The name of the mirrored instance method, if implemented. By default, the name will be one of { <i>Add</i>, <i>Subtract</i>, <i>SubtractFrom</i>, <i>Multiply</i>, <i>DivideBy</i>, <i>DivideInto</i>, <i>Dot</i>, <i>Cross</i>, <i>CrossInto</i> } - depending on the <see cref="SharpMeasures.OperatorType"/> and <see cref="OperationPosition"/>.</summary>
+    /// <summary>The name of the mirrored instance method, if implemented.</summary>
     public string? MirroredMethodName { get; init; }
 
-    /// <summary>The name of the mirrored static method, if implemented. By default, the name will be one of { <i>Add</i>, <i>Subtract</i>, <i>Multiply</i>, <i>Divide</i>, <i>Dot</i>, <i>Cross</i> } - depending on the <see cref="SharpMeasures.OperatorType"/> and <see cref="OperationPosition"/>.</summary>
+    /// <summary>The name of the mirrored static method, if implemented.</summary>
     public string? MirroredStaticMethodName { get; init; }
 
     /// <summary>Describes an operation supported by the marked quantity.</summary>
