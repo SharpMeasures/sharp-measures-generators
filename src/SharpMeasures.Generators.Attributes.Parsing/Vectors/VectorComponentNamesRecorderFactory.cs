@@ -8,8 +8,6 @@ using OneOf.Types;
 using SharpAttributeParser;
 using SharpAttributeParser.Mappers;
 
-using SharpMeasures;
-using SharpMeasures.Generators.Attributes.Parsing;
 using SharpMeasures.Generators.Attributes.Vectors;
 
 using System;

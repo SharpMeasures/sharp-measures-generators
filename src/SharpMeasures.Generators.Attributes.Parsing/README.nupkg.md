@@ -1,4 +1,4 @@
-# SharpMeasures.Generators.Parsing.Attributes
+# SharpMeasures.Generators.Attributes.Parsing
 
 Allows the attributes provided by SharpMeasures.Generators to be parsed.
 
