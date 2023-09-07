@@ -22,6 +22,8 @@
     </ItemGroup>
 
     <ItemGroup>
+        <ProjectReference Include="..\SharpMeasures.Generators.Attributes.Parsing.Combined.Abstractions\SharpMeasures.Generators.Attributes.Parsing.Combined.Abstractions.csproj" />
+        <ProjectReference Include="..\SharpMeasures.Generators.Attributes.Parsing.Semantic.Abstractions\SharpMeasures.Generators.Attributes.Parsing.Semantic.Abstractions.csproj" />
         <ProjectReference Include="..\SharpMeasures.Generators.Attributes.Parsing\SharpMeasures.Generators.Attributes.Parsing.csproj" />
     </ItemGroup>
 
