@@ -2,7 +2,7 @@
 
 using System;
 
-/// <summary>Determines how a scalar that may not be negative behaves when constructed with a negative value.</summary>
+/// <summary>Determines how a quantity that may not be negative behaves when constructed with a negative value.</summary>
 public enum DisallowNegativeBehaviour
 {
     /// <summary>The <see cref="DisallowNegativeBehaviour"/> is unknown.</summary>
