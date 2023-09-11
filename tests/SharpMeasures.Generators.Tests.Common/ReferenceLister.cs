@@ -1,5 +1,7 @@
 ﻿namespace SharpMeasures.Generators;
 
+using Microsoft.CodeAnalysis;
+
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -8,7 +10,7 @@ using System.Reflection;
 
 internal static class ReferenceLister
 {
-    public static IEnumerable<Assembly> List(Assembly assembly)
+    public static IEnumerable<MetadataReference> List(Assembly assembly)
     {
         Queue<Assembly> unresolvedAssemblies = new();
         List<Assembly> resolvedAssemblies = new();
@@ -43,6 +45,8 @@ internal static class ReferenceLister
 
         resolvedAssemblies.AddRange(AppDomain.CurrentDomain.GetAssemblies());
 
-        return resolvedAssemblies;
+        return resolvedAssemblies.Where(static (assembly) => assembly.IsDynamic is false)
+            .Select(static (assembly) => MetadataReference.CreateFromFile(assembly.Location))
+            .Cast<MetadataReference>();
     }
 }

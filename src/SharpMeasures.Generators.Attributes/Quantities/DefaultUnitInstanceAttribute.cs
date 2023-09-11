@@ -2,7 +2,7 @@
 
 using System;
 
-/// <summary>Applied to SharpMeasures quantities, declares the default unit instance of the marked quantity - used when formatting the quantity.</summary>
+/// <summary>Applied to SharpMeasures quantities, declaring the default unit instance of the marked quantity - used when formatting the quantity.</summary>
 [AttributeUsage(AttributeTargets.Class | AttributeTargets.Struct)]
 public sealed class DefaultUnitInstanceAttribute : Attribute
 {

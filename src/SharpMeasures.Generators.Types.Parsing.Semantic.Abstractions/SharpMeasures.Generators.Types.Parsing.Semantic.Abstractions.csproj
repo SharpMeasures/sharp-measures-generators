@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <RootNamespace>SharpMeasures.Generators.Types.Parsing</RootNamespace>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <Title>SharpMeasures.Generators.Types.Parsing.Semantic.Abstractions</Title>
+        <Description>
+            Provides abstractions of 'SharpMeasures.Generators.Types.Parsing' when related to semantic representations.
+        </Description>
+        <PackageReadmeFile>README.nupkg.md</PackageReadmeFile>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <None Include="README.nupkg.md" Pack="true" PackagePath="\" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\SharpMeasures.Generators.Types.Representations.Semantic\SharpMeasures.Generators.Types.Representations.Semantic.csproj" />
+    </ItemGroup>
+
+</Project>

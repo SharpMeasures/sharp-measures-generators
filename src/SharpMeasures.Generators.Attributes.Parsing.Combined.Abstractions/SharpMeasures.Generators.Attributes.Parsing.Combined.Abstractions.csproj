@@ -8,17 +8,13 @@
     <PropertyGroup>
         <Title>SharpMeasures.Generators.Attributes.Parsing.Combined.Abstractions</Title>
         <Description>
-            Provides abstractions of SharpMeasures.Generators.Attributes.Parsing when related to combined representations.
+            Provides abstractions of 'SharpMeasures.Generators.Attributes.Parsing.Combined'.
         </Description>
         <PackageReadmeFile>README.nupkg.md</PackageReadmeFile>
     </PropertyGroup>
 
     <ItemGroup>
         <None Include="README.nupkg.md" />
-    </ItemGroup>
-
-    <ItemGroup>
-        <PackageReference Include="OneOf" />
     </ItemGroup>
 
     <ItemGroup>

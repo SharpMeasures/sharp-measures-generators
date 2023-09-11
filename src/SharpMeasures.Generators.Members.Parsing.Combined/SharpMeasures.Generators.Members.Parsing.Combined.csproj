@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>netstandard2.0</TargetFramework>
+		<RootNamespace>SharpMeasures.Generators.Members.Parsing</RootNamespace>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.CodeAnalysis.Common" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\SharpMeasures.Generators.Attributes.Identification.Abstractions\SharpMeasures.Generators.Attributes.Identification.Abstractions.csproj" />
+		<ProjectReference Include="..\SharpMeasures.Generators.Attributes.Parsing.Combined.Abstractions\SharpMeasures.Generators.Attributes.Parsing.Combined.Abstractions.csproj" />
+		<ProjectReference Include="..\SharpMeasures.Generators.Attributes.Representations.Combined\SharpMeasures.Generators.Attributes.Representations.Combined.csproj" />
+		<ProjectReference Include="..\SharpMeasures.Generators.Attributes.Representations.Semantic\SharpMeasures.Generators.Attributes.Representations.Semantic.csproj" />
+		<ProjectReference Include="..\SharpMeasures.Generators.Attributes.Representations.Syntactic\SharpMeasures.Generators.Attributes.Representations.Syntactic.csproj" />
+		<ProjectReference Include="..\SharpMeasures.Generators.Attributes\SharpMeasures.Generators.Attributes.csproj" />
+		<ProjectReference Include="..\SharpMeasures.Generators.Members.Parsing.Combined.Abstractions\SharpMeasures.Generators.Members.Parsing.Combined.Abstractions.csproj" />
+		<ProjectReference Include="..\SharpMeasures.Generators.Members.Representations.Combined\SharpMeasures.Generators.Members.Representations.Combined.csproj" />
+		<ProjectReference Include="..\SharpMeasures.Generators.Members.Representations.Semantic\SharpMeasures.Generators.Members.Representations.Semantic.csproj" />
+		<ProjectReference Include="..\SharpMeasures.Generators.Members.Representations.Syntactic\SharpMeasures.Generators.Members.Representations.Syntactic.csproj" />
+	</ItemGroup>
+
+</Project>

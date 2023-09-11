@@ -8,7 +8,7 @@
     <PropertyGroup>
         <Title>SharpMeasures.Generators.Attributes</Title>
         <Description>
-            Provides the attributes used by SharpMeasures.Generators, declaring how quantities and units should be generated.
+            Provides the attributes used by 'SharpMeasures.Generators', declaring how quantities and units should be generated.
         </Description>
         <PackageReadmeFile>README.nupkg.md</PackageReadmeFile>
     </PropertyGroup>

@@ -8,7 +8,7 @@
     <PropertyGroup>
         <Title>SharpMeasures.Generators.Attributes.Parsing.Semantic.Abstractions</Title>
         <Description>
-            Provides abstractions of SharpMeasures.Generators.Attributes.Parsing when related to semantic representations.
+            Provides abstractions of 'SharpMeasures.Generators.Attributes.Parsing.Semantic'.
         </Description>
         <PackageReadmeFile>README.nupkg.md</PackageReadmeFile>
     </PropertyGroup>

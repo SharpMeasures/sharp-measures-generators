@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <RootNamespace>SharpMeasures.Generators.Attributes.Parsing.DependencyInjection</RootNamespace>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <Title>SharpMeasures.Generators.Attributes.Parsing.Semantic.DependencyInjection</Title>
+        <Description>
+            Allows the services provided by 'SharpMeasures.Generators.Attributes.Parsing.Semantic' to be registered with DI-containers.
+        </Description>
+        <PackageReadmeFile>README.nupkg.md</PackageReadmeFile>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <None Include="README.nupkg.md" Pack="true" PackagePath="\" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\SharpMeasures.Generators.Attributes.Parsing.Common\SharpMeasures.Generators.Attributes.Parsing.Common.csproj" />
+        <ProjectReference Include="..\SharpMeasures.Generators.Attributes.Parsing.Semantic.Abstractions\SharpMeasures.Generators.Attributes.Parsing.Semantic.Abstractions.csproj" />
+        <ProjectReference Include="..\SharpMeasures.Generators.Attributes.Parsing.Semantic\SharpMeasures.Generators.Attributes.Parsing.Semantic.csproj" />
+    </ItemGroup>
+
+</Project>

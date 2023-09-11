@@ -1,0 +1,38 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <RootNamespace>SharpMeasures.Generators.Attributes.Parsing</RootNamespace>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <Title>SharpMeasures.Generators.Attributes.Parsing.Combined</Title>
+        <Description>
+            Allows the attributes provided by 'SharpMeasures.Generators.Attributes' to be parsed.
+        </Description>
+        <PackageReadmeFile>README.nupkg.md</PackageReadmeFile>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <None Include="README.nupkg.md" Pack="true" PackagePath="\" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="IsExternalInit" PrivateAssets="all">
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="SharpAttributeParser.RecordBuilders" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\SharpMeasures.Generators.Attributes.Parsing.Combined.Abstractions\SharpMeasures.Generators.Attributes.Parsing.Combined.Abstractions.csproj" />
+        <ProjectReference Include="..\SharpMeasures.Generators.Attributes.Representations.Combined\SharpMeasures.Generators.Attributes.Representations.Combined.csproj" />
+        <ProjectReference Include="..\SharpMeasures.Generators.Attributes.Representations.Semantic\SharpMeasures.Generators.Attributes.Representations.Semantic.csproj" />
+        <ProjectReference Include="..\SharpMeasures.Generators.Attributes.Representations.Syntactic\SharpMeasures.Generators.Attributes.Representations.Syntactic.csproj" />
+        <ProjectReference Include="..\SharpMeasures.Generators.Attributes\SharpMeasures.Generators.Attributes.csproj" />
+    </ItemGroup>
+
+</Project>
